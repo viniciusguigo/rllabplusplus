@@ -10,6 +10,9 @@ import numpy as np
 
 def set_experiment(mode="local", keys=None, params=dict()):
     flags = FLAGS.__flags
+    # VGG: fix error handling flags after Tensorflow 1.4
+    for name in flags.keys():
+        flags[name] = flags[name].value
     flags = deepcopy(flags)
 
     for k, v in params.items():
