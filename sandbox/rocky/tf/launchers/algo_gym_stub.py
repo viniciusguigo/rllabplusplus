@@ -8,11 +8,13 @@ import tensorflow as tf
 from copy import deepcopy
 import numpy as np
 
+
 def set_experiment(mode="local", keys=None, params=dict()):
     flags = FLAGS.__flags
     # VGG: fix error handling flags after Tensorflow 1.4
     for name in flags.keys():
         flags[name] = flags[name].value
+        print('{}: {}'.format(name, flags[name]))
     flags = deepcopy(flags)
 
     for k, v in params.items():
@@ -22,7 +24,13 @@ def set_experiment(mode="local", keys=None, params=dict()):
 
     n_episodes = flags["max_episode"] # max episodes before termination
     info, _ = get_env_info(**flags)
-    max_path_length = info['horizon']
+    max_path_length = 300#info['horizon'] **VGG: TODO: fix Gym env to include this
+
+    print('n_episodes: ', n_episodes)
+    print('max_path_length: ', max_path_length)
+    print('flags[batch_size]: ', flags['batch_size'])
+    print('flags[obs_space]: ', info['obs_space'])
+
     n_itr = int(np.ceil(float(n_episodes*max_path_length)/flags['batch_size']))
 
     exp_prefix='%s'%(flags["exp"])

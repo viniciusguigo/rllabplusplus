@@ -304,5 +304,3 @@ def run_experiment(algo, n_parallel=0, seed=0,
     logger.remove_tabular_output(tabular_log_file)
     logger.remove_text_output(text_log_file)
     logger.pop_prefix()
-
-

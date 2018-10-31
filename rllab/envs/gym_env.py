@@ -6,7 +6,8 @@ import traceback
 import logging
 
 try:
-    from gym.wrappers.monitoring import logger as monitor_logger
+    #from gym.wrappers.monitoring import logger as monitor_logger
+    monitor_logger = logging.getLogger()
 
     monitor_logger.setLevel(logging.WARNING)
 except Exception as e:
@@ -64,6 +65,11 @@ class GymEnv(Env, Serializable):
             else:
                 log_dir = os.path.join(logger.get_snapshot_dir(), "gym_log")
         Serializable.quick_init(self, locals())
+
+        # import custom environment
+        import sys
+        sys.path.append('../')
+        import hri_airsim
 
         env = gym.envs.make(env_name)
         self.env = env

@@ -99,6 +99,7 @@ class HRI_AirSim(gym.Env):
         # parameters
         self.n_episodes = main_setup.getint('n_episodes')
         self.n_max_steps = main_setup.getint('n_max_steps')
+        self.horizon = self.n_max_steps # standard for max epi length on rllab
         self.n_hold_action = main_setup.getint('n_hold_action')
 
         self.n_act_mode = main_setup.getint('n_act_mode')
