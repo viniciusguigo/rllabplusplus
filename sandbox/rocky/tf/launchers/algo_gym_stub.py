@@ -23,7 +23,6 @@ def set_experiment(mode="local", keys=None, params=dict()):
         flags[k] = v
 
     n_episodes = flags["max_episode"] # max episodes before termination
-    print('\n**** GETTING ENV INF0 ****\n')
     info, _ = get_env_info(**flags)
     max_path_length = 300#info['horizon'] **VGG: TODO: fix Gym env to include this
 
@@ -64,7 +63,7 @@ def run_experiment(**kwargs):
     algo, run_kwargs = set_experiment(**kwargs)
     run_experiment_lite(
         algo.train(),
-        n_parallel=1,
+        n_parallel=0,
         **run_kwargs,
     )
 

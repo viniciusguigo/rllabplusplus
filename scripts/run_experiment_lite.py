@@ -122,11 +122,12 @@ def run_experiment(argv):
             method_call(variant_data)
         else:
             data = pickle.loads(base64.b64decode(args.args_data))
+            # VGG: this method spawns multiple environments
             maybe_iter = concretize(data)
             if is_iterable(maybe_iter):
                 for _ in maybe_iter:
                     pass
-
+                    
     logger.set_snapshot_mode(prev_mode)
     logger.set_snapshot_dir(prev_snapshot_dir)
     logger.remove_tabular_output(tabular_log_file)
