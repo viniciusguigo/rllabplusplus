@@ -23,6 +23,7 @@ def set_experiment(mode="local", keys=None, params=dict()):
         flags[k] = v
 
     n_episodes = flags["max_episode"] # max episodes before termination
+    print('\n**** GETTING ENV INF0 ****\n')
     info, _ = get_env_info(**flags)
     max_path_length = 300#info['horizon'] **VGG: TODO: fix Gym env to include this
 
@@ -64,12 +65,6 @@ def run_experiment(**kwargs):
     run_experiment_lite(
         algo.train(),
         n_parallel=1,
-        snapshot_mode="last_best",
-        terminate_machine=True,
-        sync_s3_pkl=True,
-        periodic_sync_interval=1200,
-        # terminate_machine=False,
-        # fast_code_sync=False,
         **run_kwargs,
     )
 
