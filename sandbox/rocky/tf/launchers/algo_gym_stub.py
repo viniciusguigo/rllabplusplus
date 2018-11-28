@@ -24,7 +24,7 @@ def set_experiment(mode="local", keys=None, params=dict()):
 
     n_episodes = flags["max_episode"] # max episodes before termination
     info, _ = get_env_info(**flags)
-    max_path_length = 300#info['horizon'] **VGG: TODO: fix Gym env to include this
+    max_path_length = info['horizon'] #200 **VGG: TODO: fix Gym env to include this
 
     print('n_episodes: ', n_episodes)
     print('max_path_length: ', max_path_length)
@@ -51,7 +51,7 @@ def set_experiment(mode="local", keys=None, params=dict()):
     es = get_es(env=env, info=info, **flags)
 
     algo = get_algo(n_itr=n_itr, env=env, policy=policy, baseline=baseline,
-            qf=qf, es=es, max_path_length=max_path_length, **flags)
+            qf=qf, es=es, max_path_length=max_path_length, plot=True,**flags)
     return algo, dict(
             exp_prefix=exp_prefix,
             exp_name=exp_name,
@@ -65,6 +65,7 @@ def run_experiment(**kwargs):
         algo.train(),
         n_parallel=0,
         **run_kwargs,
+        plot=True
     )
 
 def main(argv=None):
