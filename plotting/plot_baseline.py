@@ -90,11 +90,13 @@ if __name__ == '__main__':
     ## HUMAN
     run_id = './data/human/human_lunarlander0_log.csv'
     human_data = np.genfromtxt(run_id, delimiter=',')
-    print(human_data)
+    
     # print human mean reward and stddev bounds
+    human_best = np.max(human_data[:,0])
     human_mean = np.mean(human_data[:,0])
     human_stddev = np.std(human_data[:,0])
-    ax.hlines(human_mean, 0, n_samples, label='Human')
+    ax.hlines(human_best, 0, n_samples, 'r', linestyle='dotted', label='Human Best')
+    ax.hlines(human_mean, 0, n_samples, label='Human Mean')
     ax.hlines(human_mean+human_stddev, 0, n_samples, linestyle='dotted')
     ax.hlines(human_mean-human_stddev, 0, n_samples, linestyle='dotted')
     

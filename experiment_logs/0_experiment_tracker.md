@@ -10,6 +10,7 @@ This document tracks experiment identification numbers, log names, goals, and su
 | 1-3 | data/local/lander-trpo1 | 1_progress_report.md | TRPO on LunarLanderContinuous-v2 (1000 episodes, batch size 2000), 3 seeds |
 | 1-4 | data/local/lander-qprop1 | 1_progress_report.md | Q-Prop on LunarLanderContinuous-v2 (1000 episodes, batch size 2000), 3 seeds |
 | 1-5 | data/local/lander-ipg1 | 1_progress_report.md | IPG on LunarLanderContinuous-v2 (1000 episodes, batch size 2000), 3 seeds |
+| 1-6 | data/human/human_lunarlander0_log.csv | 1_progress_report.md | Human performance (50 episdoes) |
 
 ## Convert Markdown to PDF
 

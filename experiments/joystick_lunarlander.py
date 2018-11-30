@@ -59,7 +59,7 @@ if __name__ == "__main__":
     try:
         ## setup human subject
         n_epi = 50
-        exp_name = 'human_lunarlander0'
+        exp_name = 'test'
         # save rewards and time steps
         human_data = np.zeros((n_epi, 2))
 
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         file_addr = './data/human/{}_log.csv'.format(exp_name)
         np.savetxt(file_addr, human_data, delimiter=',')
         print('[*] * Human Performance Summary *')
-        print('[*] Mean reward: {:.2f} | Std dev: {:.2f}'.format(np.mean(human_data[:,0]),np.std(human_data[:,0])))
+        print('[*] Best reward: {} | Mean reward: {:.2f} | Std dev: {:.2f}'.format(np.max(human_data[:,0]), np.mean(human_data[:,0]),np.std(human_data[:,0])))
         print('[*] Log saved at {}'.format(file_addr))
                 
     except KeyboardInterrupt:
