@@ -59,6 +59,8 @@ def process_avg(fig, ax, run_id, run_id_label, n_seeds=1):
     # plot
     plot_history(fig, ax, avg_return, n_samples, run_id_label)
 
+    return n_samples
+
 if __name__ == '__main__':
     # setup figure
     save_pic = True
@@ -73,17 +75,29 @@ if __name__ == '__main__':
     ## IPG
     run_id = './data/local/lander-ipg/LunarLanderContinuous-v2-1000--ad-0-0--an-actrpo--asb-0--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--psl-True--qbs-64--qhn-relu--qhs-100x100--qlr-0-001--qmr-0-0--qrp-0-0--qut-True--sr-1-0--ss-0-01--ur-1-0--s-'
     run_id_label = 'IPG'
-    process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
+    n_samples = process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
 
     ## QPROP
     run_id = './data/local/lander-qprop/LunarLanderContinuous-v2-1000--an-qprop--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--psl-True--qbs-64--qeo-ones--qhn-relu--qhs-100x100--qlr-0-001--qmr-0-0--qrp-0-0--qut-True--sb-0--sr-1-0--ss-0-01--ur-1-0--s-'
     run_id_label = 'Q-Prop'
-    process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
+    n_samples = process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
 
     ## TRPO
     run_id = './data/local/lander-trpo/LunarLanderContinuous-v2-1000--an-trpo--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--ss-0-01--s-'
     run_id_label = 'TRPO'
-    process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
+    n_samples = process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
+
+    ## HUMAN
+    run_id = './data/human/human_lunarlander0_log.csv'
+    human_data = np.genfromtxt(run_id, delimiter=',')
+    print(human_data)
+    # print human mean reward and stddev bounds
+    human_mean = np.mean(human_data[:,0])
+    human_stddev = np.std(human_data[:,0])
+    ax.hlines(human_mean, 0, n_samples, label='Human')
+    ax.hlines(human_mean+human_stddev, 0, n_samples, linestyle='dotted')
+    ax.hlines(human_mean-human_stddev, 0, n_samples, linestyle='dotted')
+    
 
     # save/show pic
     plt.legend()
