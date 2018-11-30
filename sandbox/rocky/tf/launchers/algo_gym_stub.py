@@ -24,7 +24,7 @@ def set_experiment(mode="local", keys=None, params=dict()):
 
     n_episodes = flags["max_episode"] # max episodes before termination
     info, _ = get_env_info(**flags)
-    max_path_length = info['horizon'] #200 **VGG: TODO: fix Gym env to include this
+    max_path_length = 200 #info['horizon'] #200 **VGG: TODO: fix Gym env to include this
 
     print('n_episodes: ', n_episodes)
     print('max_path_length: ', max_path_length)

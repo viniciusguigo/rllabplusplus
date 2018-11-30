@@ -4,12 +4,12 @@ This document tracks experiment identification numbers, log names, goals, and su
 
 | Experiment ID | Log Name | Goals and Outcomes | Note |
 | :-: | :-: | :-: | :-: |
-| 1-0 | data/local/lander-trpo | 1_progress_report.md | TRPO on LunarLanderContinuous-v2 (1000 episodes), 3 seeds |
-| 1-1 | data/local/lander-qprop | 1_progress_report.md | Q-Prop on LunarLanderContinuous-v2 (1000 episodes), 3 seeds |
-| 1-2 | data/local/lander-ipg | 1_progress_report.md | IPG on LunarLanderContinuous-v2 (1000 episodes), 3 seeds |
-| 1-3 | data/local/lander-trpo1 | 1_progress_report.md | TRPO on LunarLanderContinuous-v2 (10000 episodes), 3 seeds |
-| 1-4 | data/local/lander-qprop1 | 1_progress_report.md | Q-Prop on LunarLanderContinuous-v2 (10000 episodes), 3 seeds |
-| 1-5 | data/local/lander-ipg1 | 1_progress_report.md | IPG on LunarLanderContinuous-v2 (10000 episodes), 3 seeds |
+| 1-0 | data/local/lander-trpo | 1_progress_report.md | TRPO on LunarLanderContinuous-v2 (1000 episodes, batch size 1000), 3 seeds |
+| 1-1 | data/local/lander-qprop | 1_progress_report.md | Q-Prop on LunarLanderContinuous-v2 (1000 episodes, batch size 1000), 3 seeds |
+| 1-2 | data/local/lander-ipg | 1_progress_report.md | IPG on LunarLanderContinuous-v2 (1000 episodes, batch size 1000), 3 seeds |
+| 1-3 | data/local/lander-trpo1 | 1_progress_report.md | TRPO on LunarLanderContinuous-v2 (1000 episodes, batch size 2000), 3 seeds |
+| 1-4 | data/local/lander-qprop1 | 1_progress_report.md | Q-Prop on LunarLanderContinuous-v2 (1000 episodes, batch size 2000), 3 seeds |
+| 1-5 | data/local/lander-ipg1 | 1_progress_report.md | IPG on LunarLanderContinuous-v2 (1000 episodes, batch size 2000), 3 seeds |
 
 ## Convert Markdown to PDF
 

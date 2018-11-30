@@ -62,7 +62,7 @@ def process_avg(fig, ax, run_id, run_id_label, n_seeds=1):
 if __name__ == '__main__':
     # setup figure
     save_pic = True
-    name_pic = './plotting/baseline.png'
+    name_pic = './plotting/baseline2.png'
 
     # plot rewards
     fig, ax = plt.subplots(1)
@@ -71,17 +71,17 @@ if __name__ == '__main__':
 
     # plot data
     ## IPG
-    run_id = './data/local/lander-ipg/LunarLanderContinuous-v2-1000--ad-0-0--an-actrpo--asb-0--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--psl-True--qbs-64--qhn-relu--qhs-100x100--qlr-0-001--qmr-0-0--qrp-0-0--qut-True--sr-1-0--ss-0-01--ur-1-0--s-'
+    run_id = './data/local/lander-ipg2/LunarLanderContinuous-v2-200--ad-0-0--an-actrpo--asb-0--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--psl-True--qbs-64--qhn-relu--qhs-100x100--qlr-0-001--qmr-0-0--qrp-0-0--qut-True--sr-1-0--ss-0-01--ur-1-0--s-'
     run_id_label = 'IPG'
     process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
 
     ## QPROP
-    run_id = './data/local/lander-qprop/LunarLanderContinuous-v2-1000--an-qprop--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--psl-True--qbs-64--qeo-ones--qhn-relu--qhs-100x100--qlr-0-001--qmr-0-0--qrp-0-0--qut-True--sb-0--sr-1-0--ss-0-01--ur-1-0--s-'
+    run_id = './data/local/lander-qprop2/LunarLanderContinuous-v2-200--an-qprop--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--psl-True--qbs-64--qeo-ones--qhn-relu--qhs-100x100--qlr-0-001--qmr-0-0--qrp-0-0--qut-True--sb-0--sr-1-0--ss-0-01--ur-1-0--s-'
     run_id_label = 'Q-Prop'
     process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
 
     ## TRPO
-    run_id = './data/local/lander-trpo/LunarLanderContinuous-v2-1000--an-trpo--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--ss-0-01--s-'
+    run_id = './data/local/lander-trpo2/LunarLanderContinuous-v2-200--an-trpo--bc-linear--bhs-32x32--gl-0-97--ksb-0--phn-tanh--phs-100x50--pon-None--ss-0-01--s-'
     run_id_label = 'TRPO'
     process_avg(fig, ax, run_id, run_id_label, n_seeds=3)
 
